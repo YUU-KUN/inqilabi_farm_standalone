@@ -16,7 +16,7 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        return Pembayaran::with('Package')->get();
+        return Pembayaran::with('Package')->with('Report')->get();
     }
 
     /**
@@ -64,8 +64,17 @@ class PembayaranController extends Controller
      */
     public function show($id)
     {
-        $pembayaran = Pembayaran::where('id', $id)->with('Package')->first();
+        $pembayaran = Pembayaran::where('id', $id)->with('Package')->with('User')->first();
         return $pembayaran;
+        // $pembayaran = Pembayaran::where('id', $id)->with('Package')->with('Report')->first();
+        // for ($i=0; $i < $pembayaran->report->count(); $i++) { 
+        //     if ($pembayaran->report[$i] = 'pembagian') {
+                
+        //     }
+        // }
+        // return $pembayaran->report;
+        
+        // return $pembayaran->report[2]->proses;
     }
 
     /**
