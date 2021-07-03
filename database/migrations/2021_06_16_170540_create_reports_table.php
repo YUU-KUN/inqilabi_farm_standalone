@@ -28,10 +28,10 @@ class CreateReportsTable extends Migration
             $table->date('hari_pembagian')->nullable();
             $table->string('supir')->nullable();
             $table->string('no_supir')->nullable();
-            $table->date('mobil_pengirim')->nullable();
+            $table->string('mobil_pengirim')->nullable();
             $table->string('penerima')->nullable();
-            $table->string('hari_diterima')->nullable();
-            $table->date('pukul_diterima')->nullable();
+            $table->date('hari_diterima')->nullable();
+            $table->string('pukul_diterima')->nullable();
             $table->string('foto')->nullable();
             $table->enum('proses', ['foto_hewan', 'penyembelihan', 'pembagian', 'pengiriman', 'sampai']);
             $table->enum('isReported', [0, 1])->default(0);
