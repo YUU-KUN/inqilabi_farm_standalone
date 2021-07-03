@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Report;
 use App\Models\Pembayaran;
+use App\Models\Sertifikat;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -47,11 +48,16 @@ class ReportController extends Controller
         $input = $request->all();
         // $input['foto'] = $request->foto->store('public/reports');
         
-        $image = $request->foto;
-        $input['foto'] = $image->getClientOriginalName();
-        $image->move(public_path('reports'),$input['foto']);
-
+        if ($input['foto']) {
+            $image = $request->file('foto');
+            $input['foto'] = time().'.'.$image->extension();
+            $image->move(public_path('reports'),$input['foto']);
+        }
         $report = Report::create($input);
+        if ($report->proses == 'dibagikan' || $report->proses == 'sampai') {
+            $inputSertifikat['id_pembayaran'] = $report->id_pembayaran;
+            Sertifikat::create($inputSertifikat);
+        };
         return $report;
     }
 
@@ -87,6 +93,15 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $input = $request->all();
+        // return $input['foto']->getClientOriginalName();
+        if ($request->foto) {
+            $image = $request->file('foto');
+            $input['foto'] = time().'.'.$image->extension();
+            $image->move(public_path('reports'),$input['foto']);
+        } else {
+            $input['foto'] = $report->foto;
+        }
+
         $report->update($input);
         return $report;
     }
@@ -104,6 +119,7 @@ class ReportController extends Controller
 
     public function myReport() 
     {
+        // return Auth::user()->id;
         $myReport = Pembayaran::where('user_id', Auth::user()->id)->where('status', 'success')->with('Package')->get();
         return $myReport;
     }
@@ -150,4 +166,24 @@ class ReportController extends Controller
     //     $report->isReported = true;
     //     $report->save();
     // }
+
+    public function updateReport(Request $request)
+    {
+        $input = $request->all();
+        $report = Report::where('id', $request->id)->first();
+        if ($input['foto']) {
+            // $image = $request->foto;
+            $image = $request->file('foto');
+            // return $image->getClientOriginalName();
+            $input['foto'] = time().'.'.$image->extension();
+            $image->move(public_path('reports'),$input['foto']);
+        } else {
+            $input['foto'] = $report->foto;
+        }
+        // return $input['foto'];
+
+        $report->update($input);
+        return $report;
+    }
 }
+
