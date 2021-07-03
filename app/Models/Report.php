@@ -22,6 +22,18 @@ class Report extends Model
         'hari_pembagian', 
         'foto', 
         'proses', 
+        'hari_pembagian',
+        'supir',
+        'no_supir',
+        'mobil_pengirim',
+        'penerima',
+        'hari_diterima',
+        'pukul_diterima',
         'isReported'
     ];
+
+    public function Pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class, 'id_pembayaran');
+    }
 }
