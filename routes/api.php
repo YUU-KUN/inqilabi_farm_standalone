@@ -9,6 +9,7 @@ use App\Http\Controllers\PackagesController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PengirimanController;
+use App\Http\Controllers\SertifikatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,9 +73,14 @@ Route::get('getReportPenyembelihan/{id_pembayaran}', [ReportController::class, '
 Route::get('getReportPembagian/{id_pembayaran}', [ReportController::class, 'getReportPembagian'])->middleware('auth:user-api');
 Route::get('getReportPengiriman/{id_pembayaran}', [ReportController::class, 'getReportPengiriman'])->middleware('auth:user-api');
 Route::get('getReportSampai/{id_pembayaran}', [ReportController::class, 'getReportSampai'])->middleware('auth:user-api');
+Route::post('updateReport/{id}', [ReportController::class, 'updateReport'])->middleware('auth:user-api');
 // Route::put('sendReport/{id}', [ReportController::class, 'myReportDetail'])->middleware('auth:admin-api,user-api');
 Route::resource('report', ReportController::class);
 
 // PENGIRIMAN
-Route::get('getPengirimanUser/{id_pembayaran}', [PengirimanController::class, 'getPengirimanUser']);
-Route::resource('pengiriman', PengirimanController::class);
+Route::get('getPengirimanUser/{id_pembayaran}', [PengirimanController::class, 'getPengirimanUser'])->middleware('auth:admin-api,user-api');
+Route::resource('pengiriman', PengirimanController::class)->middleware('auth:admin-api,user-api');
+
+// SERTIFIKAT
+Route::post('uploadSertifikat', [SertifikatController::class, 'uploadSertifikat'])->middleware('auth:admin-api,user-api');
+Route::resource('sertifikat', SertifikatController::class)->middleware('auth:admin-api,user-api');
