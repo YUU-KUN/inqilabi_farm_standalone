@@ -11,12 +11,16 @@ class Pembayaran extends Model
     protected $table = 'pembayarans';
     protected $fillable = ['user_id', 'package_id', 'nama', 'jumlah', 'total', 'proses', 'bukti_transfer', 'status'];
 
+    public function User()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 
     public function Package() {
         return $this->belongsTo('App\Models\Packages', 'package_id');
     }
 
     public function Report() {
-        return $this->hasMany('App\Models\DetailHewan', 'id_pembayaran');
+        return $this->hasMany('App\Models\Report', 'id_pembayaran');
     }
 }
