@@ -28,13 +28,13 @@ Route::post('register_admin', [AdminController::class, 'register']);
 Route::post('login_admin', [AdminController::class, 'login']);
 
 // USER
-Route::post('register_user', [UserController::class, 'register']);
-Route::post('login_user', [UserController::class, 'login']);
+Route::post('register', [UserController::class, 'register']);
+Route::post('login', [UserController::class, 'login']);
 
 Route::post('logout', [AdminController::class, 'logout']); // LOGOUT
-// Route::get('tes', [UserController::class, 'profile'])->middleware('auth:admin-api,user-api'); // PROFILE 
+// Route::get('tes', [UserController::class, 'profile'])->middleware(['api.admin', 'api.user']); // PROFILE 
 
-// Route::middleware('auth:admin-api,user-api')->get('/profile', function (Request $request) {
+// Route::middleware(['api.admin', 'api.user'])->get('/profile', function (Request $request) {
 //     $user = $request->user();
 //     return response()->json([
 //         'user' => $user,
@@ -43,44 +43,45 @@ Route::post('logout', [AdminController::class, 'logout']); // LOGOUT
 //     ]);
 // });
 
-Route::get('profile', [UserController::class, 'profile'])->middleware('auth:admin-api,user-api');
+// Route::get('profile', [UserController::class, 'profile'])->middleware(['api.admin', 'api.user']);
+Route::get('profile', [UserController::class, 'profile'])->middleware(['api.admin','api.user']);
 
-Route::get('dashboard', [UserController::class, 'dashboard'])->middleware('auth:admin-api,user-api');
-Route::post('profileCompletion', [UserController::class, 'profileCompletion'])->middleware('auth:user-api');
+Route::get('dashboard', [UserController::class, 'dashboard'])->middleware(['api.admin', 'api.user']);
+Route::post('profileCompletion', [UserController::class, 'profileCompletion'])->middleware(['api.user']);
 
 // CART
-Route::resource('cart', CartController::class)->middleware('auth:admin-api,user-api');
+Route::resource('cart', CartController::class)->middleware(['api.admin', 'api.user']);
 
 // PACKAGE
-Route::post('package/{tipe}', [PackagesController::class, 'getPackageByType'])->middleware('auth:admin-api,user-api');
+Route::post('package/{tipe}', [PackagesController::class, 'getPackageByType'])->middleware('api.user');
 Route::get('price/{tipe}', [PackagesController::class, 'getPriceRange']);
 Route::get('weight', [PackagesController::class, 'getWeightRange']);
-Route::resource('package', PackagesController::class)->middleware('auth:admin-api,user-api');
+Route::resource('package', PackagesController::class)->middleware(['api.admin','api.user']);
 
 // PEMBAYARAN
-Route::get('getPembayaranUser', [PembayaranController::class, 'getPembayaranUser'])->middleware('auth:user-api');
-Route::post('uploadBuktiTransfer', [PembayaranController::class, 'uploadBuktiTransfer'])->middleware('auth:admin-api,user-api');
-Route::put('approve_pembayaran/{id}', [PembayaranController::class, 'approve'])->middleware('auth:admin-api,user-api');
-Route::put('reject_pembayaran/{id}', [PembayaranController::class, 'reject'])->middleware('auth:admin-api,user-api');
-Route::resource('pembayaran', PembayaranController::class)->middleware('auth:admin-api,user-api');
+Route::get('getPembayaranUser', [PembayaranController::class, 'getPembayaranUser'])->middleware('api.user');
+Route::post('uploadBuktiTransfer', [PembayaranController::class, 'uploadBuktiTransfer'])->middleware(['api.admin', 'api.user']);
+Route::put('approve_pembayaran/{id}', [PembayaranController::class, 'approve'])->middleware(['api.admin', 'api.user']);
+Route::put('reject_pembayaran/{id}', [PembayaranController::class, 'reject'])->middleware(['api.admin', 'api.user']);
+Route::resource('pembayaran', PembayaranController::class)->middleware(['api.admin', 'api.user']);
 
 // REPORT
-Route::get('getReportDetail/{id_pembayaran}', [ReportController::class, 'getReportDetail'])->middleware('auth:admin-api,user-api');
-Route::get('myReport', [ReportController::class, 'myReport'])->middleware('auth:user-api');
-Route::get('myReport/{id_pembayaran}', [ReportController::class, 'myReportDetail'])->middleware('auth:user-api');
-Route::get('getReportHewan/{id_pembayaran}', [ReportController::class, 'getReportHewan'])->middleware('auth:user-api');
-Route::get('getReportPenyembelihan/{id_pembayaran}', [ReportController::class, 'getReportPenyembelihan'])->middleware('auth:user-api');
-Route::get('getReportPembagian/{id_pembayaran}', [ReportController::class, 'getReportPembagian'])->middleware('auth:user-api');
-Route::get('getReportPengiriman/{id_pembayaran}', [ReportController::class, 'getReportPengiriman'])->middleware('auth:user-api');
-Route::get('getReportSampai/{id_pembayaran}', [ReportController::class, 'getReportSampai'])->middleware('auth:user-api');
-Route::post('updateReport/{id}', [ReportController::class, 'updateReport'])->middleware('auth:user-api');
-// Route::put('sendReport/{id}', [ReportController::class, 'myReportDetail'])->middleware('auth:admin-api,user-api');
+Route::get('getReportDetail/{id_pembayaran}', [ReportController::class, 'getReportDetail'])->middleware(['api.admin', 'api.user']);
+Route::get('myReport', [ReportController::class, 'myReport'])->middleware(['api.user']);
+Route::get('myReport/{id_pembayaran}', [ReportController::class, 'myReportDetail'])->middleware(['api.user']);
+Route::get('getReportHewan/{id_pembayaran}', [ReportController::class, 'getReportHewan'])->middleware(['api.user']);
+Route::get('getReportPenyembelihan/{id_pembayaran}', [ReportController::class, 'getReportPenyembelihan'])->middleware(['api.user']);
+Route::get('getReportPembagian/{id_pembayaran}', [ReportController::class, 'getReportPembagian'])->middleware(['api.user']);
+Route::get('getReportPengiriman/{id_pembayaran}', [ReportController::class, 'getReportPengiriman'])->middleware(['api.user']);
+Route::get('getReportSampai/{id_pembayaran}', [ReportController::class, 'getReportSampai'])->middleware(['api.user']);
+Route::post('updateReport/{id}', [ReportController::class, 'updateReport'])->middleware(['api.user']);
+// Route::put('sendReport/{id}', [ReportController::class, 'myReportDetail'])->middleware(['api.admin', 'api.user']);
 Route::resource('report', ReportController::class);
 
 // PENGIRIMAN
-Route::get('getPengirimanUser/{id_pembayaran}', [PengirimanController::class, 'getPengirimanUser'])->middleware('auth:admin-api,user-api');
-Route::resource('pengiriman', PengirimanController::class)->middleware('auth:admin-api,user-api');
+Route::get('getPengirimanUser/{id_pembayaran}', [PengirimanController::class, 'getPengirimanUser'])->middleware(['api.admin', 'api.user']);
+Route::resource('pengiriman', PengirimanController::class)->middleware(['api.admin', 'api.user']);
 
 // SERTIFIKAT
-Route::post('uploadSertifikat', [SertifikatController::class, 'uploadSertifikat'])->middleware('auth:admin-api,user-api');
-Route::resource('sertifikat', SertifikatController::class)->middleware('auth:admin-api,user-api');
+Route::post('uploadSertifikat', [SertifikatController::class, 'uploadSertifikat'])->middleware(['api.admin', 'api.user']);
+Route::resource('sertifikat', SertifikatController::class)->middleware(['api.admin', 'api.user']);
