@@ -18,7 +18,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $laporan = Pembayaran::where('status', 'success')->with('Package')->get();
+        $laporan = Pembayaran::where('status', 'success')->with('Package')->with('Report')->get();
         return $laporan;
     }
 
@@ -119,8 +119,8 @@ class ReportController extends Controller
 
     public function myReport() 
     {
-        // return Auth::user()->id;
-        $myReport = Pembayaran::where('user_id', Auth::user()->id)->where('status', 'success')->with('Package')->get();
+        // return Auth::guard('api')->user()->id;
+        $myReport = Pembayaran::where('user_id', Auth::guard('api')->user()->id)->where('status', 'success')->with('Package')->get();
         return $myReport;
     }
 
