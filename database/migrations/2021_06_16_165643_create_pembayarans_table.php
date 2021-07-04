@@ -20,6 +20,7 @@ class CreatePembayaransTable extends Migration
             $table->string('nama');
             $table->integer('jumlah');
             $table->integer('total');
+            $table->string('dedikasi');
             $table->enum('proses', ['inqilabi_farm', 'dikirim'])->default('inqilabi_farm');
             $table->string('bukti_transfer')->nullable();
             $table->enum('status', ['success', 'failed', 'pending'])->default('pending');
