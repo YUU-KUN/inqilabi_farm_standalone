@@ -19,14 +19,7 @@ class UserController extends Controller
     }
 
     public function profile(Request $request) {
-        $user = $request->user();
-        // $user = $request->user();
-        // if (Auth::guard('user')) {
-        //     $user->role = 'user';
-        // } else {
-        //     $user->role = 'admin';
-        //     return 'halo';
-        // }
+        $user = User::find(Auth::guard('api')->user()->id);
         return response()->json([
             'user' => $user,
             'message' => 'Berhasil mendapatkan data pengguna',
@@ -37,6 +30,8 @@ class UserController extends Controller
     public function register(Register $request) {
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
+        $input['level'] = 'user';
+
         if (!$input['isAgree']) {
             return 'Mohon setujui syarat dan ketentuan';
         }
@@ -69,7 +64,7 @@ class UserController extends Controller
 
     public function profileCompletion(ProfileCompletion $request) {
         $input = $request->all();
-        $user = Auth::user();
+        $user = Auth::guard('api')->user();
         $user->update($input);
         return $user;
     }
