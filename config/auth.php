@@ -41,33 +41,30 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        // 'api' => [
-        //     'driver' => 'token',
-        //     'provider' => 'users',
-        //     'hash' => false,
-        // ],
+        'api' => [
+            'driver' => 'passport',
+            'provider' => 'users',
+        ],
 
         // USER
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-        'user-api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
-            // 'hash' => false,
-        ],
+        // 'user' => [
+        //     'driver' => 'session',
+        //     'provider' => 'users',
+        // ],
+        // 'user-api' => [
+        //     'driver' => 'passport',
+        //     'provider' => 'users',
+        // ],
 
         // ADMIN
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
-        'admin-api' => [
-            'driver' => 'passport',
-            'provider' => 'admins',
-            // 'hash' => false,
-        ],
+        // 'admin' => [
+        //     'driver' => 'session',
+        //     'provider' => 'admins',
+        // ],
+        // 'admin-api' => [
+        //     'driver' => 'passport',
+        //     'provider' => 'admins',
+        // ],
     ],
 
     /*
