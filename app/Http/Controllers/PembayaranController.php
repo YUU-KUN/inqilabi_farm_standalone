@@ -41,11 +41,13 @@ class PembayaranController extends Controller
         if (!$input['isAgree']) {
             return 'Mohon setujui syarat dan ketentuan';
         }
-        $input['user_id'] = Auth::user()->id;
+        $input['user_id'] = Auth::guard('api')->user()->id;
 
-        $image = $request->file('bukti_transfer');
-        $input['bukti_transfer'] = $image->getClientOriginalName();
-        $image->move(public_path('bukti_transfer'), $input['bukti_transfer']);
+        if ($input['bukti_transfer']) {
+            $image = $request->file('bukti_transfer');
+            $input['bukti_transfer'] = $image->getClientOriginalName();
+            $image->move(public_path('bukti_transfer'), $input['bukti_transfer']);
+        }
 
         $pembayaran = Pembayaran::create($input);
 
@@ -115,7 +117,7 @@ class PembayaranController extends Controller
 
     public function uploadBuktiTransfer(Request $request) {
         $input = $request->all();
-        $pembayaran = Pembayaran::where('user_id', Auth::user()->id)->where('id', $input['package_id'])->latest()->first();
+        $pembayaran = Pembayaran::where('user_id', Auth::guard('api')->user()->id)->where('id', $input['package_id'])->latest()->first();
 
         $image = $request->file('bukti_transfer');
         $input['bukti_transfer'] = $image->getClientOriginalName();
@@ -126,9 +128,9 @@ class PembayaranController extends Controller
     }
 
     public function getPembayaranUser() {
-        $pembayaran = Pembayaran::where('user_id', Auth::user()->id)->with('Package')->get();
+        $pembayaran = Pembayaran::where('user_id', Auth::guard('api')->user()->id)->with('Package')->get();
         return response()->json([
-            'message' => 'Berhasil mendapatkan data pembayaran'.Auth::user()->name,
+            'message' => 'Berhasil mendapatkan data pembayaran'.Auth::guard('api')->user()->name,
             'data' => $pembayaran,
         ]);
     }
