@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota')->nullable();
             $table->string('provinsi')->nullable();
-            $table->enum('level', ['admin', 'user']);
+            $table->enum('level', ['admin', 'user'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
