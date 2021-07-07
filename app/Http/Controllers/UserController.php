@@ -12,10 +12,9 @@ use Hash, Auth;
 
 class UserController extends Controller
 {
-    public function dashboard() {
-        $dashboard['jumlahPengguna'] = User::count();
-        $dashboard['totalPemesananKurban'] = Kurban::count();
-        return $dashboard;
+    public function getAllUser(Request $request)
+    {
+        return User::all();
     }
 
     public function profile(Request $request) {
@@ -72,5 +71,11 @@ class UserController extends Controller
     public function logout() {
         Auth::logout();
         return 'Berhasil Logout';
+    }
+
+    public function deleteUser($id)
+    {
+        User::find($id)->delete();
+        return 'Berhasil menghapus data User';
     }
 }
