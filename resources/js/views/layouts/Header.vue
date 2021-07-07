@@ -30,9 +30,8 @@
         >
           <template #button-content>
             <b-avatar size="sm"></b-avatar>
-            {{userDetail.name}}
+            <span>{{userDetail.name}}</span>
           </template>
-          <!-- <router-link to="register" class="nav-link">{{userDetail}}</router-link> -->
 
           <span>
             <b-dropdown-item v-if="userDetail.level == 'user'">
@@ -68,7 +67,6 @@
           <span style="text-align:center" v-if="!userDetail.alamat || !userDetail.kecamatan || !userDetail.kota || !userDetail.provinsi">
             <div class="col">
               <b-icon icon="exclamation-triangle" variant="danger"></b-icon>
-              <!-- &#x1f50d;<span class="sr-only">Search</span> -->
             </div>
             <div class="col">
               <b-dropdown-text style="width: 240px;">
@@ -76,12 +74,13 @@
               </b-dropdown-text>
             </div>
             <router-link to="profileCompletion">
-              <b-button variant="warning" type="button" block
+              <b-button variant="warning" type="button" block class="text-white " style="text-decoration:none"
                 >Lengkapi Profile
               </b-button>
             </router-link>
           </span>
         </b-dropdown>
+        
       </li>
     </ul>
   </nav>
