@@ -148,6 +148,9 @@ export default {
         this.next = false;
         alert("Mohon lengkapi formnya");
         // console.log('Mohon lengkapi formnya');
+      } else if (this.password != this.password_confirmation){
+        this.next = false;
+        alert('Konfirmasi password tidak sama')
       } else {
         this.next = true;
       }
