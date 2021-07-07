@@ -48,7 +48,7 @@ Vue.filter('formatDate', function(value) {
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://116.193.190.201:80/api/'
+axios.defaults.baseURL = 'http://116.193.190.201/api/'
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 if (localStorage.getItem("Authorization")) {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem("Authorization")
@@ -56,7 +56,7 @@ if (localStorage.getItem("Authorization")) {
 
 window.Vue = require('vue').default;
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 
