@@ -7,9 +7,6 @@
             <div class="row w-100">
               <div class="col-lg-4 mx-auto">
                 <div class="auth-form-light text-center p-5">
-                  <!-- <div class="navbar-brand brand-logo">
-                        <img src="../../public/img/logo.svg">
-                      </div> -->
                   <h4>Buat Akun</h4>
                   <!-- <h6 class="font-weight-light"></h6> -->
                   <br>

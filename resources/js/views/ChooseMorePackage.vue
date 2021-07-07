@@ -18,9 +18,9 @@
                             <div class="row">
                                 <div class="col d-flex align-items-center justify-content-end" style="padding: 0">
                                     <div class="d-flex flex-column" >
-                                        <img v-if="$route.params.type == 'kambing_jantan'" src="../../../public/img/domba_jantan.png" alt="" width="150px">
-                                        <img v-else-if="$route.params.type == 'sapi'" src="../../../public/img/patungan_sapi.png" alt="" width="150px">
-                                        <img v-else src="../../../public/img/domba_betina.png" alt="" width="150px">
+                                        <img v-if="$route.params.type == 'kambing_jantan'" src="require('../../../img/domba_jantan.png" alt="" width="150px">
+                                        <img v-else-if="$route.params.type == 'sapi'" src="require('../../../img/patungan_sapi.png" alt="" width="150px">
+                                        <img v-else src="require('../../../img/domba_betina.png" alt="" width="150px">
                                         <p>Berat: <b>{{paket.berat}} Kg</b></p>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
         packages: [],
-        packageImage: '../../../public/img/domba_jantan.png',
+        packageImage: "require('../../../img/domba_jantan.png",
         type: this.$route.params.type
     };
   },

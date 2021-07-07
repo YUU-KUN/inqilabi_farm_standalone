@@ -8,7 +8,7 @@
                   <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left p-5">
                       <div class="navbar-brand brand-logo">
-                        <img src="../../../public/img/logo.svg">
+                        <img src="require('../../../img/logo.svg">
                       </div>
                       <h4>Selamat datang!</h4>
                       <h6 class="font-weight-light">Login untuk mengelola poin pelanggaran siswa.</h6>

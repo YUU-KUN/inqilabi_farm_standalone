@@ -12,7 +12,7 @@
                 <div class="card" style="align-items:center;">
                     <h3 style="margin: 30px"><b>Kambing / Domba Betina</b></h3>
                     <img
-                        src="../../../public/img/domba_betina.png"
+                        src="require('../../../img/domba_betina.png"
                         alt="Domba Betina"
                         style=""
                     />
@@ -32,7 +32,7 @@
                 <div class="card" style="align-items:center;">
                     <h3 style="margin: 30px"><b>Kambing / Domba Jantan</b></h3>
                     <img
-                        src="../../../public/img/domba_jantan.png"
+                        src="require('../../../img/domba_jantan.png"
                         alt="Domba Jantan"
                         style=""
                     />
@@ -49,7 +49,7 @@
                 <div class="card" style="align-items:center;">
                     <h3 style="margin: 30px"><b>Patungan Sapi</b></h3>
                     <img
-                        src="../../../public/img/patungan_sapi.png"
+                        src="require('../../../img/patungan_sapi.png"
                         alt="Domba Betina"
                         style=""
                     />

@@ -27,9 +27,9 @@
         </div>
         <div class="row d-flex align-items-center mb-4">
             <div class="col-3" v-if="!confirmPage">
-                <img v-if="packages.tipe == 'kambing_jantan'" src="../../../public/img/domba_jantan.png" alt="Product Image" width="250px">
-                <img v-if="packages.tipe == 'kambing_betina'" src="../../../public/img/domba_betina.svg" alt="Product Image" width="250px">
-                <img v-if="packages.tipe == 'sapi'" src="../../../public/img/patungan_sapi.svg" alt="Product Image" width="250px">
+                <img v-if="packages.tipe == 'kambing_jantan'" src="require('../../../img/domba_jantan.png" alt="Product Image" width="250px">
+                <img v-if="packages.tipe == 'kambing_betina'" src="require('../../../img/domba_betina.svg" alt="Product Image" width="250px">
+                <img v-if="packages.tipe == 'sapi'" src="require('../../../img/patungan_sapi.svg" alt="Product Image" width="250px">
             </div>
             <div class="col-3" v-if="confirmPage" >
                 <h4><b>{{nama}}</b></h4>
@@ -217,7 +217,7 @@
         <div class="align-items-center my-4">
             <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" useCustomSlot @vdropzone-complete="afterComplete">
                 <div class="dropzone-custom-content" >
-                    <img src="../../../public/img/entypo_upload-to-cloud.svg" alt="Cloud Upload Icon" height="75px">
+                    <img src="require('../../../img/entypo_upload-to-cloud.svg" alt="Cloud Upload Icon" height="75px">
                     <div class="subtitle">Upload Foto Hewan</div>
                 </div>
               </vue-dropzone>

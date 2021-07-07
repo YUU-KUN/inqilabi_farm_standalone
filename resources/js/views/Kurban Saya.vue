@@ -63,7 +63,7 @@
                       </template>
                       <template #cell(sertifikat)="data">
                         <!-- <a href="#" @click="generateSertfikat(data.item.id)" data-toggle="modal" :data-target="'#modalSertifikat'+data.item.id"> -->
-                        <img @click="generateSertfikat(data.item.id)" style="cursor: pointer" src="../../../public/img/ant-design_download-outlined.svg" alt="download sertifikat button">
+                        <img @click="generateSertfikat(data.item.id)" style="cursor: pointer" src="require('../../../img/ant-design_download-outlined.svg" alt="download sertifikat button">
 
                         <!-- Modal -->
                         <div class="modal fade" :id="'modalSertifikat'+data.item.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -110,7 +110,7 @@
                               <h1 style="z-index: 2; position: absolute; top: 480px; left: 140px"><b>{{data.item.total | rupiah}}</b></h1>
                               <p style="z-index: 3; position: absolute; top: 515px; left: 635px" class="text-white font-weight-bold">Malang, {{data.item.created_at | formatDate}}</p>
                               <p style="z-index: 3; position: absolute; top: 590px; left: 325px"><b>{{data.item.dedikasi}}</b></p>
-                              <img src="../../../public/img/SERTIFIKAT.png" width="90%" class="mx-5" alt="Sertifikat Kurban">
+                              <img src="require('../../../img/SERTIFIKAT.png" width="90%" class="mx-5" alt="Sertifikat Kurban">
                                 <!-- PDF Content Here -->
                             </section>
                         </vue-html2pdf>
