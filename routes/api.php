@@ -10,6 +10,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PengirimanController;
 use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +40,22 @@ Route::post('logout', [AdminController::class, 'logout']); // LOGOUT
 // });
 
 // Route::get('profile', [UserController::class, 'profile'])->middleware(['api.admin', 'api.user']);
-Route::get('profile', [UserController::class, 'profile'])->middleware(['api.admin','api.user']);
 
+// USER
+Route::get('getAllUser', [UserController::class, 'getAllUser']);
 Route::get('dashboard', [UserController::class, 'dashboard'])->middleware(['api.admin', 'api.user']);
+Route::get('profile', [UserController::class, 'profile'])->middleware(['api.admin', 'api.user']);
 Route::post('profileCompletion', [UserController::class, 'profileCompletion'])->middleware(['api.user']);
+Route::delete('deleteUser/{id}', [UserController::class, 'deleteUser'])->middleware(['api.admin', 'api.user']);
+
+// DASHBOARD
+Route::get('dashboard', [DashboardController::class, 'dashboard']);
+Route::get('totalUser', [DashboardController::class, 'getTotalUsers']);
+Route::get('totalPesanan', [DashboardController::class, 'getTotalPesanan']);
+Route::get('kurbanBerlangsung', [DashboardController::class, 'getKurbanBerlangsung']);
+Route::get('kurbanTerselesaikan', [DashboardController::class, 'getWaitingTransaction']);
+Route::get('waitingTransaction', [DashboardController::class, 'getWaitingTransaction']);
+Route::get('successTransaction', [DashboardController::class, 'getSuccessTransaction']);
 
 // CART
 Route::resource('cart', CartController::class)->middleware(['api.admin', 'api.user']);
