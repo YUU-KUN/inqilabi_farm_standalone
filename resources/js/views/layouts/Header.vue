@@ -5,7 +5,7 @@
     style="padding: 10px 100px"
   >
     <router-link to="/">
-      <img class="navbar-brand" src="../../../../img/logo.svg" height="50px" alt="logo" />
+      <img class="navbar-brand" src="require('../../../../img/logo.svg')" height="50px" alt="logo" />
     </router-link>
 
     <ul class="nav">
