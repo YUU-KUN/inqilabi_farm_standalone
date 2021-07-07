@@ -22,12 +22,7 @@ use App\Http\Controllers\SertifikatController;
 |
 */
 
-// ADMIN
-// Route::post('register_admin', [AdminController::class, 'register'])->middleware('auth:admin-api');
-Route::post('register_admin', [AdminController::class, 'register']);
-Route::post('login_admin', [AdminController::class, 'login']);
-
-// USER
+// AUTH
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
