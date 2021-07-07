@@ -36,7 +36,7 @@
           <span>
             <b-dropdown-item v-if="userDetail.level == 'user'">
               <router-link style="text-decoration: none; color: black" to="/kurbanSaya">
-                Kurban Anda
+                Kurban Saya
               </router-link>
             </b-dropdown-item>
             <b-dropdown-item v-if="userDetail.level == 'user'">
