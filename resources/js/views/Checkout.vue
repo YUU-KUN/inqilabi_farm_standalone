@@ -305,19 +305,6 @@ export default {
         },
         bayar() {
             this.uploadImagePage = true
-            // const form = {
-            //     package_id: this.$route.params.package_id,
-            //     nama: this.nama,
-            //     jumlah: this.jumlah,
-            //     total: this.packages.harga * this.jumlah,
-            //     proses: this.proses,
-            //     isAgree: this.isAgree,
-            //     bukti_transfer: this.bukti_transfer
-            // }
-            // this.axios.post('pembayaran', form).then(response => {
-            //     console.log(response);
-            //     this.uploadImagePage = true
-            // }).catch(error => console.log(error.response))
         },
         upload() {
             if (!this.bukti_transfer) {
@@ -343,42 +330,11 @@ export default {
                 formData.append('kecamatan', this.kecamatan_penerima)
                 formData.append('kota', this.kota_penerima)
                 formData.append('provinsi', this.provinsi_penerima)
-                
             }
-            // const form = {
-            //         // id_pembayaran: statis
-            //         nama_penerima: this.nama_penerima,
-            //         no_wa: this.noWa_penerima,
-            //         tempat_penerima: this.masjid_penerima,
-            //         alamat: this.alamat_penerima,
-            //         kecamatan: this.kecamatan_penerima,
-            //         kota: this.kota_penerima,
-            //         provinsi: this.provinsi_penerima,
-            //     }
-
-            // const form = {
-            //     package_id: this.$route.params.package_id,
-            //     nama: this.nama,
-            //     jumlah: this.jumlah,
-            //     total: this.packages.harga * this.jumlah,
-            //     proses: this.proses,
-            //     isAgree: this.isAgree,
-            //     bukti_transfer: this.bukti_transfer
-            // }
             this.axios.post('pembayaran', formData).then(response => {
                 console.log(response.data);
                 this.$router.push('transactionSuccess')
             }).catch(error => console.log(error.response))
-
-            // const form = {
-            //     package_id: this.$route.params.package_id,
-            //     bukti_transfer: this.bukti_transfer
-            // }
-            // this.axios.post('uploadBuktiTransfer', form).then(response => {
-            //     this.$router.push('transactionSuccess')
-            // }).catch(error => {
-            //     console.log(error.response);
-            // })
         },
         afterComplete(file) {
             this.bukti_transfer = file
