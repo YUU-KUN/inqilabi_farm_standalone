@@ -80,7 +80,7 @@ const routes = [
         }
     },
     {
-        path: '/laporan/:id_pembayaran/:id_laporan',
+        path: '/laporan/:id_pembayaran/edit/:id_laporan',
         name: 'reportEdit',
         components: { default: LaporanEdit, footer: Footer, header: Header },
         meta: {
