@@ -23,7 +23,7 @@
       </li>
       <li v-if="isLoggedIn" class="nav-item">
         <b-dropdown
-          size="lg"
+          size="md"
           variant="link"
           toggle-class="text-decoration-none"
           no-caret
