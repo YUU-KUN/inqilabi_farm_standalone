@@ -124,11 +124,11 @@ class ReportController extends Controller
         return $myReport;
     }
 
-    public function myReportDetail(Request $request) 
-    {
-        $myReportDetail = Report::where('id_pembayaran', $request->id_pembayaran)->get();
-        return $myReportDetail;
-    }
+    // public function myReportDetail(Request $request) 
+    // {
+    //     $myReportDetail = Report::where('id_pembayaran', $request->id_pembayaran)->get();
+    //     return $myReportDetail;
+    // }
 
     public function getReportHewan(Request $request) 
     {
