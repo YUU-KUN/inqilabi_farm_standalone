@@ -84,7 +84,7 @@ class SertifikatController extends Controller
         //
     }
 
-    public function uploadSertifikat(Request $request)
+    public function sendWhatsApp(Request $request)
     {
         $client = new Client();
         $input = $request->all();
