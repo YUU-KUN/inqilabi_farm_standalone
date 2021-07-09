@@ -306,6 +306,10 @@ export default {
         bayar() {
             this.uploadImagePage = true
         },
+        afterComplete(file) {
+            this.bukti_transfer = file
+            console.log(file);
+        },
         upload() {
             if (!this.bukti_transfer) {
                 alert('Mohon upload bukti pembayaran')
@@ -335,10 +339,6 @@ export default {
                 console.log(response.data);
                 this.$router.push('transactionSuccess')
             }).catch(error => console.log(error.response))
-        },
-        afterComplete(file) {
-            this.bukti_transfer = file
-            console.log(file);
         },
         getDefaultData() {
             this.axios.get('profile').then(response => {
@@ -375,7 +375,7 @@ export default {
             this.kecamatan_penerima = ''
             this.kota_penerima = ''
             this.provinsi_penerima = ''
-        }
+        },
   },
   computed: {
       check() {
@@ -409,8 +409,8 @@ export default {
       }
   },
   mounted() {
-      this.getPackage()
-      this.getDefaultData()
+    this.getPackage()
+    this.getDefaultData()
   }
 };
 </script>
