@@ -49,6 +49,10 @@ class PembayaranController extends Controller
             $image->move(public_path('bukti_transfer'), $input['bukti_transfer']);
         }
 
+        if (!$input['dedikasi']) {
+            $input['dedikasi'] = 'Diri Sendiri';
+        }
+
         $pembayaran = Pembayaran::create($input);
 
         if ($pembayaran->proses == 'dikirim') {
