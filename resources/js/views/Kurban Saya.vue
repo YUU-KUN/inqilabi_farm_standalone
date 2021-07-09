@@ -90,8 +90,8 @@
                           :filename="'Sertifikat Kurban '+ data.item.created_at"
                           :show-layout="false"
                           :float-layout="true"
-                          :enable-download="true"
-                          :preview-modal="false"
+                          :enable-download="false"
+                          :preview-modal="true"
                           :paginate-elements-by-height="1400"
                           :pdf-quality="2"
                           :manual-pagination="true"
@@ -105,13 +105,24 @@
                           ref="sertifikat"
                           >
                             <section slot="pdf-content" class="px-0">
-                              <p style="z-index: 3; position: absolute; top: 340px; left: 220px"><b>{{returnID(data.item.id)}}/QB/IC/{{returnMonthRomawi(data.item.created_at)}}/{{returnYear(data.item.created_at)}}</b></p>
-                              <h1 style="z-index: 2; position: absolute; top: 390px; left: 140px"><b>{{data.item.nama}}</b></h1>
-                              <h1 style="z-index: 2; position: absolute; top: 480px; left: 140px"><b>{{data.item.total | rupiah}}</b></h1>
-                              <p style="z-index: 3; position: absolute; top: 515px; left: 635px" class="text-white font-weight-bold">Malang, {{data.item.created_at | formatDate}}</p>
-                              <p style="z-index: 3; position: absolute; top: 590px; left: 325px"><b>{{data.item.dedikasi}}</b></p>
-                              <img src="require('../../../img/SERTIFIKAT.png" width="90%" class="mx-5" alt="Sertifikat Kurban">
-                                <!-- PDF Content Here -->
+                              <!-- no. sertifikat -->
+                              <p style="z-index: 3; position: absolute; top: 349px; left: 200px"><b><i>{{returnID(data.item.id)}}/QB/IC/{{returnMonthRomawi(data.item.created_at)}}/{{returnYear(data.item.created_at)}}</i></b></p>
+
+                              <!-- diberikan kepada -->
+                              <h1 style="z-index: 2; position: absolute; top: 399px; left: 115px"><b>{{data.item.nama}}</b></h1>
+
+                              <!-- nominal qurban -->
+                              <h1 style="z-index: 2; position: absolute; top: 492px; left: 115px"><b>{{data.item.total | rupiah}}</b></h1>
+
+                              <!-- tanggal sertifikat -->
+                              <p style="z-index: 3; position: absolute; top: 524px; left: 635px" class="text-white font-weight-bold">Malang, {{data.item.created_at | formatDate}}</p>
+
+                              <!-- didedikasikan kepada -->
+                              <p style="z-index: 3; position: absolute; top: 611px; left: 313px"><b><i>{{data.item.dedikasi}}</i></b></p>
+                              
+                              <!-- template sertifikat -->
+                              <img src="require('../../../img/SERTIFIKAT.png" width="30%"  alt="Sertifikat Kurban" style="margin: 25px 0px 25px 35px">
+                              
                             </section>
                         </vue-html2pdf>
                         <!-- <button @click="generateSertifikat(data.item.id)" class="btn btn-success">
