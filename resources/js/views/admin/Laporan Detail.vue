@@ -218,9 +218,11 @@ export default {
                 \nSalam Hangat, 
                 \n*Admin Inqilabi Farm*`,
           }
-          this.axios.post('uploadSertifikat', form).then(response => {
+
+          this.changeReportStatus(report.id)
+          
+          this.axios.post('sendWhatsApp', form).then(response => {
               console.log(response.data);
-              this.changeReportStatus(report.id)
           }).catch(error => {
               console.log(error.response);
           })
@@ -228,7 +230,6 @@ export default {
       },
       changeReportStatus(id) {
           const isReported = '1'
-          //   this.axios.put(`sendReport/${id}`).then(response => {
           this.axios.put(`report/${id}`, {isReported}).then(response => {
               console.log(response.data);
               this.getReportDetail()
