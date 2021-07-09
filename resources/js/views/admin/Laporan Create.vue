@@ -145,7 +145,7 @@
               </span>
               <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" useCustomSlot @vdropzone-complete="afterComplete">
                 <div class="dropzone-custom-content" >
-                    <img src="../../../../public/img/entypo_upload-to-cloud.svg" alt="Cloud Upload Icon" height="75px">
+                    <img src="require('../../../../img/entypo_upload-to-cloud.svg" alt="Cloud Upload Icon" height="75px">
                     <div class="subtitle">
                       <span v-if="proses == 'foto_hewan'">Upload Foto Hewan</span>
                       <span v-if="proses == 'penyembelihan'">Upload Foto Penyembelihan</span>
