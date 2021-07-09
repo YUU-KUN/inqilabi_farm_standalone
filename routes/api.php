@@ -91,5 +91,5 @@ Route::get('getPengirimanUser/{id_pembayaran}', [PengirimanController::class, 'g
 Route::resource('pengiriman', PengirimanController::class)->middleware(['api.admin', 'api.user']);
 
 // SERTIFIKAT
-Route::post('uploadSertifikat', [SertifikatController::class, 'uploadSertifikat'])->middleware(['api.admin', 'api.user']);
+Route::post('sendWhatsApp', [SertifikatController::class, 'sendWhatsApp'])->middleware(['api.admin', 'api.user']);
 Route::resource('sertifikat', SertifikatController::class)->middleware(['api.admin', 'api.user']);
