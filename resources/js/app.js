@@ -42,13 +42,14 @@ Vue.use(VueCurrency, {
 
 Vue.filter('formatDate', function(value) {
   if (value) {
-    return moment(String(value)).locale('id').format('D MMM YYYY') 
+    return moment(String(value)).locale('id').format('D MMMM YYYY') 
   }
 })
 
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'http://116.193.190.201/api/'
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 if (localStorage.getItem("Authorization")) {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem("Authorization")
