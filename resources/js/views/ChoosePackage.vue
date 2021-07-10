@@ -7,62 +7,67 @@
             <h2><b>Pilih Paket</b></h2>
             <br>
             <br>
-            <div class="d-flex justify-content-center">
-                <!-- Kambing / Domba Betina -->
-                <div class="card" style="align-items:center;">
-                    <h3 style="margin: 30px"><b>Kambing / Domba Betina</b></h3>
-                    <img
-                        src="require('../../../img/domba_betina.png"
-                        alt="Domba Betina"
-                        style=""
-                    />
-                    <br />
-                    <!-- <p class="price">Berat: 25-40 Kg</p> -->
-                    <p>Berat: <b>25-40 Kg</b></p>
-                    <h5>Mulai dari</h5>
-                    <h3><b>Rp 1.850.000</b></h3>
-                    <!-- <p><button>Kurban Sekarang</button></p> -->
-                    <!-- <p><b-button pill variant="light">Kurban Sekarang</b-button></p> -->
-                    <router-link to="choosePackage/kambing_betina">
-                        <b-button pill variant="light">Kurban Sekarang</b-button>
-                    </router-link>
+            <div class="row">
+              <div class="col my-4">
+                <div class="d-flex justify-content-center">
+                    <!-- Kambing / Domba Betina -->
+                    <div class="card" style="align-items:center;">
+                        <h3 style="margin: 30px"><b>Kambing / Domba Betina</b></h3>
+                        <img
+                            src="require('../../../img/domba_betina.png"
+                            alt="Domba Betina"
+                            style=""
+                        />
+                        <br />
+                        <p>Berat: <b>25-40 Kg</b></p>
+                        <h5>Mulai dari</h5>
+                        <h3><b>Rp 1.850.000</b></h3>
+                        <router-link to="choosePackage/kambing_betina">
+                            <b-button pill variant="light">Kurban Sekarang</b-button>
+                        </router-link>
+                    </div>
                 </div>
-
-                <!-- Kambing / Domba Jantan -->
-                <div class="card" style="align-items:center;">
-                    <h3 style="margin: 30px"><b>Kambing / Domba Jantan</b></h3>
-                    <img
-                        src="require('../../../img/domba_jantan.png"
-                        alt="Domba Jantan"
-                        style=""
-                    />
-                    <br />
-                    <p v-if="weight">Berat: <b>{{weight.kambing_jantan.min}}-{{weight.kambing_jantan.max}} Kg</b></p>
-                    <h5>Mulai dari</h5>
-                    <h3><b>Rp 1.850.000</b></h3>
-                    <router-link to="choosePackage/kambing_jantan">
-                        <b-button pill variant="light">Kurban Sekarang</b-button>
-                    </router-link>
+              </div>
+              <div class="col my-4">
+                <div class="d-flex justify-content-center">
+                    <!-- Kambing / Domba Jantan -->
+                    <div class="card" style="align-items:center;">
+                        <h3 style="margin: 30px"><b>Kambing / Domba Jantan</b></h3>
+                        <img
+                            src="require('../../../img/domba_jantan.png"
+                            alt="Domba Betina"
+                            style=""
+                        />
+                        <br />
+                        <p v-if="weight">Berat: <b>{{weight.kambing_jantan.min}}-{{weight.kambing_jantan.max}} Kg</b></p>
+                        <h5>Mulai dari</h5>
+                        <h3><b>Rp 1.850.000</b></h3>
+                        <router-link to="choosePackage/kambing_jantan">
+                            <b-button pill variant="light">Kurban Sekarang</b-button>
+                        </router-link>
+                    </div>
                 </div>
-
-                <!-- Sapi -->
-                <div class="card" style="align-items:center;">
-                    <h3 style="margin: 30px"><b>Patungan Sapi</b></h3>
-                    <img
-                        src="require('../../../img/patungan_sapi.png"
-                        alt="Domba Betina"
-                        style=""
-                    />
-                    <br />
-                    <p v-if="weight">Berat: <b>{{weight.sapi}} Kg</b></p>
-                    <h5>Mulai dari</h5>
-                    <h3><b>Rp 1.850.000</b></h3>
-                    <p>
+              </div>
+              <div class="col my-4">
+                <div class="d-flex justify-content-center">
+                    <!-- Patungan Sapi -->
+                    <div class="card" style="align-items:center;">
+                        <h3 style="margin: 30px"><b>Patungan Sapi</b></h3>
+                        <img
+                            src="require('../../../img/patungan_sapi.png"
+                            alt="Domba Betina"
+                            style=""
+                        />
+                        <br />
+                        <p v-if="weight">Berat: <b>{{weight.sapi}} Kg</b></p>
+                        <h5>Mulai dari</h5>
+                        <h3><b>Rp 1.850.000</b></h3>
                         <router-link to="choosePackage/sapi">
                             <b-button pill variant="light">Kurban Sekarang</b-button>
                         </router-link>
-                    </p>
+                    </div>
                 </div>
+              </div>
             </div>
         </div>
     </div>
@@ -77,9 +82,6 @@ export default {
     };
   },
   methods: {
-    // kambingJantan() {
-    //   this.$router.push({name:'Choose More Packages', params: {type: ''}})
-    // },
     getWeight() {
       this.axios.get('weight').then(response => {
         this.weight = response.data
