@@ -18,28 +18,28 @@ class PackageSeeder extends Seeder
             'nama' => 'Kambing / Domba',
             'berat' => '40',
             'variant' => 'Super',
-            'harga' => '4000000',
+            'harga' => '5050000',
             'tipe' => 'kambing_jantan',
         ]);
         Packages::create([
             'nama' => 'Kambing / Domba',
             'berat' => '35',
             'variant' => 'Extra',
-            'harga' => '3600000',
+            'harga' => '3550000',
             'tipe' => 'kambing_jantan',
         ]);
         Packages::create([
             'nama' => 'Kambing / Domba',
             'berat' => '30',
             'variant' => 'Istimewa',
-            'harga' => '3100000',
+            'harga' => '3050000',
             'tipe' => 'kambing_jantan',
         ]);
         Packages::create([
             'nama' => 'Kambing / Domba',
             'berat' => '25',
             'variant' => 'Spesial',
-            'harga' => '2500000',
+            'harga' => '2550000',
             'tipe' => 'kambing_jantan',
         ]);
 
@@ -48,28 +48,28 @@ class PackageSeeder extends Seeder
             'nama' => 'Kambing / Domba',
             'berat' => '40',
             'variant' => 'Super',
-            'harga' => '4000000',
+            'harga' => '3350000',
             'tipe' => 'kambing_betina',
         ]);
         Packages::create([
             'nama' => 'Kambing / Domba',
             'berat' => '35',
             'variant' => 'Extra',
-            'harga' => '3600000',
+            'harga' => '2350000',
             'tipe' => 'kambing_betina',
         ]);
         Packages::create([
             'nama' => 'Kambing / Domba',
             'berat' => '30',
             'variant' => 'Istimewa',
-            'harga' => '3100000',
+            'harga' => '2150000',
             'tipe' => 'kambing_betina',
         ]);
         Packages::create([
             'nama' => 'Kambing / Domba',
             'berat' => '25',
             'variant' => 'Spesial',
-            'harga' => '2500000',
+            'harga' => '1850000',
             'tipe' => 'kambing_betina',
         ]);
 
@@ -81,41 +81,6 @@ class PackageSeeder extends Seeder
             'harga' => '17500000',
             'tipe' => 'sapi',
         ]);
-        // Packages::create([
-        //     'nama' => 'Patungan Kurban',
-        //     'berat' => '200',
-        //     'variant' => ' 2 Orang',
-        //     'harga' => '15000000',
-        //     'tipe' => 'sapi',
-        // ]);
-        // Packages::create([
-        //     'nama' => 'Patungan Kurban',
-        //     'berat' => '200',
-        //     'variant' => '3 Orang',
-        //     'harga' => '12500000',
-        //     'tipe' => 'sapi',
-        // ]);
-        // Packages::create([
-        //     'nama' => 'Patungan Kurban',
-        //     'berat' => '200',
-        //     'variant' => '4 Orang',
-        //     'harga' => '10000000',
-        //     'tipe' => 'sapi',
-        // ]);
-        // Packages::create([
-        //     'nama' => 'Patungan Kurban',
-        //     'berat' => '200',
-        //     'variant' => '5 Orang',
-        //     'harga' => '7500000',
-        //     'tipe' => 'sapi',
-        // ]);
-        // Packages::create([
-        //     'nama' => 'Patungan Kurban',
-        //     'berat' => '200',
-        //     'variant' => '6 Orang',
-        //     'harga' => '5000000',
-        //     'tipe' => 'sapi',
-        // ]);
         Packages::create([
             'nama' => 'Patungan Kurban',
             'berat' => '200',
