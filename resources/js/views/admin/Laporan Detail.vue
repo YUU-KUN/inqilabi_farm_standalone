@@ -76,7 +76,7 @@
                                 <div class="col">
                                     <!-- <a :href="reportPath + report.foto" target="_blank" rel="noopener">Tess</a> -->
                                     <a data-fancybox :href="reportPath + report.foto">
-                                        <img :src="`require('../../../../${reportPath + report.foto}`" alt="report image" class="img-thumbnail">
+                                        <img :src="`require('../../../../${reportPath + report.foto}`" alt="report image" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="col">
