@@ -78,7 +78,7 @@ class PackageSeeder extends Seeder
             'nama' => 'Kurban Sapi',
             'berat' => '200',
             'variant' => 'Mandiri',
-            'harga' => '17500000',
+            'harga' => '17x500000',
             'tipe' => 'sapi',
         ]);
         Packages::create([
