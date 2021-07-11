@@ -1,12 +1,10 @@
 <template>
-  <footer class="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; {{ year }} - Powered by
-        Inqilabi Farm
-      </div>
-    </div>
-  </footer>
+  <!-- <div> -->
+    <footer class="footer">
+        <img src="require('../../../../img/footer.png" style="width:100%" alt="" srcset="">
+    </footer>
+    <!-- <div id="add" style="background-color:green; heigth: 100px; width: 100px"></div> -->
+  <!-- </div> -->
 </template>
 <script>
 export default {
@@ -21,4 +19,8 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+#add {
+  background-color: red
+}
+</style>
