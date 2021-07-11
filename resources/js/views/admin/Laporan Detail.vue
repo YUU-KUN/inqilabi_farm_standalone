@@ -76,7 +76,7 @@
                                 <div class="col">
                                     <!-- <a :href="reportPath + report.foto" target="_blank" rel="noopener">Tess</a> -->
                                     <a data-fancybox :href="reportPath + report.foto">
-                                        <img :src="`require('${reportPath + report.foto}`" alt="report image" class="img-thumbnail">
+                                        <img :src="`require('../../../../${reportPath + report.foto}`" alt="report image" class="img-thumbnail">
                                     </a>
                                 </div>
                                 <div class="col">
@@ -135,7 +135,8 @@ export default {
     return {
         pembayaran: '',
         user_phone: '',
-        reportPath: 'http://127.0.0.1:8000/reports/',
+        reportPath: 'reports/',
+        // reportPath: 'http://127.0.0.1:8000/reports/',
         foto_hewan: true,
         penyembelihan_hewan: true,
         pembagian_hewan: true,
