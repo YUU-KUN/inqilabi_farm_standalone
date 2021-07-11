@@ -48,7 +48,7 @@ class UserController extends Controller
         $input = $request->all();
         $user = User::where('email', $input['emailOrPhone'])->orWhere('phone', $input['emailOrPhone'])->first();
         if (!isset($user)) {
-            return 'User tidak ditemukan. Silahkan cek email yang Anda masukkan atau buat akun terlebih dahulu';
+            return 'User tidak ditemukan';
         };
         if (!Hash::check($input['password'], $user->password)) {
             return 'Password salah';
@@ -57,6 +57,7 @@ class UserController extends Controller
 
         return response()->json([
             'user' =>  $user,
+            'status' => 1,
             'message' =>  'Selamat datang, '.$user->name,
         ]);
     }

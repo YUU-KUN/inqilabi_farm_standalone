@@ -37,19 +37,21 @@ export default new Vuex.Store({
 	            // axios({url: 'login_user', data: user, method: 'POST' })
 				axios.post('login', user)
 	            .then(response => {
-	                const token = response.data.user.access_token
-	                localStorage.setItem('Authorization', token)
-	                axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('Authorization')
-					commit('auth_success', token)
-					//get detail user
-					let conf = { headers : {"Authorization" : "Bearer " + token} };
-					axios.get("/profile", conf)
-					.then(response => {
-						//simpan detail login ke state
-						commit('userDetail', response.data.user)
-					}).catch(error => {
-						console.log(error.response)
-					})
+					if (response.data.status) {
+						const token = response.data.user.access_token
+						localStorage.setItem('Authorization', token)
+						axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('Authorization')
+						commit('auth_success', token)
+						//get detail user
+						let conf = { headers : {"Authorization" : "Bearer " + token} };
+						axios.get("/profile", conf)
+						.then(response => {
+							//simpan detail login ke state
+							commit('userDetail', response.data.user)
+						}).catch(error => {
+							console.log(error.response)
+						})
+					}
 	                resolve(response)
 	            })
 	            .catch(err => {
