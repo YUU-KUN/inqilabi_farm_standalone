@@ -111,7 +111,7 @@ class SertifikatController extends Controller
         // );
         // return $res;
         
-        $res = $client->post('https://www.inqilabifarm.com/api/sendMessage', [
+        $res = $client->post('https://whapi-inqilabifarm.my.id/api/sendMessage', [
             'form_params' => [
                 'phone' => '082244627112',
                 'secret' => 'test_secret',

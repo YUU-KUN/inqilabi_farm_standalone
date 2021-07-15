@@ -223,12 +223,7 @@ export default {
 
         //   this.changeReportStatus(report.id)
           
-        //   this.axios.post('sendWhatsApp', form).then(response => {
-        //       console.log(response.data);
-        //   }).catch(error => {
-        //       console.log(error.response);
-        //   })
-          this.axios.post('https://whapi-inqilabifarm.my.id/api/sendMessage', form).then(response => {
+          this.axios.post('sendWhatsApp', form).then(response => {
               console.log(response.data);
           }).catch(error => {
               console.log(error.response);
