@@ -49,7 +49,6 @@ Vue.filter('formatDate', function(value) {
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'https://inqilabifarm.com/api/'
-// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 if (localStorage.getItem("Authorization")) {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem("Authorization")
