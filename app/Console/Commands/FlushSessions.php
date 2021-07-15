@@ -39,6 +39,6 @@ class FlushSessions extends Command
     public function handle()
     {
         // return 0;
-        DB::table('sessions')->truncate();
+        //DB::table('sessions')->truncate();
     }
 }

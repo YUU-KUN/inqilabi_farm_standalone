@@ -68,7 +68,7 @@
                       </template>
                       <template #cell(bukti_transfer)='data'>
                         <!-- <button v-if="data.item.bukti_transfer" data-toggle="modal" :data-target="'#modalBuktiTransfer'+data.index" class="btn btn-primary btn-sm font-weight-bold">Lihat</button> -->
-                        <a v-if="data.item.bukti_transfer" data-fancybox :href="baseurl + data.item.bukti_transfer" class="btn btn-primary btn-sm font-weight-bold">Lihat</a>
+                        <a v-if="data.item.bukti_transfer" data-fancybox :href="'require(`../../../bukti_transfer/${data.item.bukti_transfer}'" class="btn btn-primary btn-sm font-weight-bold">Lihat</a>
                         <!-- <img v-if="data.item.bukti_transfer" :src="baseurl + data.item.bukti_transfer" alt="Bukti Pembayaran" class="img-thumbnail"> -->
                         <!-- <button v-else data-toggle="modal" :data-target="'#modalUploadBukti'+data.index" class="btn btn-primary btn-sm font-weight-bold">Upload Bukti Transfer</button> -->
                         <span v-else>-</span>

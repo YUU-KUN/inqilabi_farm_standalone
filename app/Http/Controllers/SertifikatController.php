@@ -99,24 +99,25 @@ class SertifikatController extends Controller
         //         ]
         //     ]
         // );
-        $res = $client->post(
-            'localhost:3000/api/sendMessage',
-            [
-                'form_params' => [
-                    'apiKey' => env('WHAPI_API_KEY'),
-                    'phone' => $input['phone'],
-                    'message' => $input['message'],
-                ]
-            ]
-        );
-        return $res;
-
-        // $res = $client->request('POST', 'https://whapites.loca.lt/api/sendMessage', [
-        //     'form_params' => [
-        //         'phone' => '082244627112',
-        //         'secret' => 'test_secret',
-        //         'apiKey' => 'f174a8b82cfdbdbb5a6ef0758a2e6e57'
+        // $res = $client->post(
+        //     'halo',
+        //     [
+        //         'form_params' => [
+        //             'apiKey' => env('WHAPI_API_KEY'),
+        //             'phone' => $input['phone'],
+        //             'message' => $input['message'],
+        //         ]
         //     ]
-        // ]);
+        // );
+        // return $res;
+        
+        $res = $client->post('https://www.inqilabifarm.com/api/sendMessage', [
+            'form_params' => [
+                'phone' => '082244627112',
+                'secret' => 'test_secret',
+                'apiKey' => 'e2a75df5ce2bbbc487a4fe2ffa50a561'
+            ]
+        ]);
+        return $res;
     }
 }

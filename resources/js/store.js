@@ -36,6 +36,7 @@ export default new Vuex.Store({
 	            commit('auth_request')
 	            // axios({url: 'login_user', data: user, method: 'POST' })
 				axios.post('login', user)
+				// axios.post('https://inqilabifarm.com/api/login', user)
 	            .then(response => {
 					if (response.data.status) {
 						const token = response.data.user.access_token

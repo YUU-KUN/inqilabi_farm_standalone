@@ -205,12 +205,13 @@ export default {
             this.val = [report.penerima, this.getDay(report.hari_diterima), report.pukul_diterima]
           }
           const form = {
+              apiKey: 'e2a75df5ce2bbbc487a4fe2ffa50a561',
             //   url_file: 'https://blogpictures.99.co/film-anime-terbaik.png',
             //   url_file: this.reportPath + this.reports[index].foto, 
             //   url_file: 'http://localhost:8000/reports/1625230771.png', 
             //   phone: '085790909646',
-            //   phone: '082244627112',
-              phone: this.user_phone,
+              phone: '082244627112',
+            //   phone: this.user_phone,
               message: 
                 `Assalamualaikum Wr. Wb, \nKami dari pihak *Inqilabi Farm* hendak menyampaikan Laporan kurban dari kurban anda saat ini :
                 \n${this.col[0]} : *${this.val[0]}* \n${this.col[1]} : *${this.val[1]}* \n${this.col[2]} : *${this.val[2]}*
@@ -220,9 +221,14 @@ export default {
                 \n*Admin Inqilabi Farm*`,
           }
 
-          this.changeReportStatus(report.id)
+        //   this.changeReportStatus(report.id)
           
-          this.axios.post('sendWhatsApp', form).then(response => {
+        //   this.axios.post('sendWhatsApp', form).then(response => {
+        //       console.log(response.data);
+        //   }).catch(error => {
+        //       console.log(error.response);
+        //   })
+          this.axios.post('https://whapi-inqilabifarm.my.id/api/sendMessage', form).then(response => {
               console.log(response.data);
           }).catch(error => {
               console.log(error.response);
